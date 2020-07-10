@@ -30,6 +30,13 @@ class Labyrinthe:
                 laby.append(line_laby)
 
             self.structure = laby
-                     
+
+
+    def display (self.window):
+        """ méthode qui afiche le labyrinthe"""
+        # chargement des images
+        gyver = pygame.image.load(image_gyver).convert_alpha()
+        mur = pygame.image.load(image_mur).convert()
+        gardien = pygame.image.load(image_gardien).convert()                         
 
                 
