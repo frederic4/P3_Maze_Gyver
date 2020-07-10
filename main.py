@@ -19,3 +19,6 @@ while continuer:
 		pygame.display.flip()
 		if event.type == QUIT:
 			continuer = 0
+
+
+           
