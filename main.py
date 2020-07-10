@@ -14,8 +14,8 @@ window = pygame.display.set_mode((cote_window, cote_window))
 fond = pygame.image.load("images/background.jpg").convert()
 
 my_super_laby = Labyrinthe("listlaby.txt")
-my_super_laby.generate
-my_super_laby.display
+my_super_laby.generate()
+my_super_laby.display(window)
 
 
 

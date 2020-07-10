@@ -16,6 +16,7 @@ class Labyrinthe:
         with open(self.file, "r", encoding="utf-8") as f:
             lines = f.readlines()
             laby = []
+            num_line = 0
             for line in lines :
             # on parcourt les lignes de la liste
 
