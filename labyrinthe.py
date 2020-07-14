@@ -39,7 +39,11 @@ class Labyrinthe:
         # chargement des images
         gyver = pygame.image.load(image_gyver).convert_alpha()
         mur = pygame.image.load(image_wall).convert()
-        gardien = pygame.image.load(image_gardien).convert()                         
+        gardien = pygame.image.load(image_gardien).convert_alpha()      
+        ether = pygame.image.load(image_ether).convert_alpha()
+        aiguille = pygame.image.load(image_aiguille).convert_alpha()
+        tube = pygame.image.load(image_tube).convert_alpha()
+                           
 
 
         num_line = 0         
@@ -52,6 +56,17 @@ class Labyrinthe:
                 y = num_line * sprite_size
                 if sprite == 'm' :
                     window.blit(mur, (x,y))
+                elif sprite == 'h' :
+                    window.blit(gyver, (x,y))    
+                elif sprite == 'g':
+                    window.blit(gardien, (x,y))
+                elif sprite == 'e':
+                    window.blit(ether, (x,y))
+                elif sprite == 'a' :
+                    window.blit(aiguille, (x,y))
+                elif sprite == 't':
+                    window.blit(tube, (x,y))
+
 
                 num_case += 1
             num_line += 1    

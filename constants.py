@@ -13,3 +13,7 @@ image_fond = "Images/background.jpg"
 image_wall = "Images/wall.jpg"
 image_gyver = "Images/MGyver.png"
 image_gardien = "Images/Gardien.png"
+
+image_ether = "Images/ether.png"
+image_aiguille = "Images/aiguille.png"
+image_tube = "Images/tube.png"
