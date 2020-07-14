@@ -17,6 +17,8 @@ my_super_laby = Labyrinthe("listlaby.txt")
 my_super_laby.generate()
 my_super_laby.display(window)
 
+pygame.display.flip()
+
 
 
 continuer = 1
@@ -28,4 +30,4 @@ while continuer:
 			continuer = 0
 
 
-           
+pygame.display.flip()          

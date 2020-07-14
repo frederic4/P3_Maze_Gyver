@@ -38,7 +38,7 @@ class Labyrinthe:
         """ méthode qui afiche le labyrinthe"""
         # chargement des images
         gyver = pygame.image.load(image_gyver).convert_alpha()
-        mur = pygame.image.load(image_mur).convert()
+        mur = pygame.image.load(image_wall).convert()
         gardien = pygame.image.load(image_gardien).convert()                         
 
 
@@ -52,3 +52,6 @@ class Labyrinthe:
                 y = num_line * sprite_size
                 if sprite == 'm' :
                     window.blit(mur, (x,y))
+
+                num_case += 1
+            num_line += 1    

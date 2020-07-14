@@ -10,6 +10,6 @@ cote_window = nombre_sprite_cote * sprite_size
 
 #Liste game pictures
 image_fond = "Images/background.jpg"
-image_mur = "Images/mur.png"
+image_wall = "Images/wall.jpg"
 image_gyver = "Images/MGyver.png"
 image_gardien = "Images/Gardien.png"
