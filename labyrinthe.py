@@ -9,6 +9,7 @@ pygame.init()
 class Labyrinthe:
     def __init__ (self, file):# Constructeur pour initialiser la classe labyrinthe
         self.file = "listlaby.txt"
+        
         self.structure = []
 
     def generate (self):# générer le labyrinthe
