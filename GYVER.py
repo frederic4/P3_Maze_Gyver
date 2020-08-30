@@ -69,7 +69,7 @@ class McGyver:
 					#print (self.y, self.x)
 					print (self.case_y, self.case_x)
 								
-					R  = pygame.Rect(self.old_pos, (30, 30)) #A chaque déplacement on blit une case noire e
+					R  = pygame.Rect(self.old_pos, (30, 30)) #A chaque déplacement on blit une case noire 
 					pygame.draw.rect(window, (0,0,0), R)
 					window.blit(self.mg_image, (self.x, self.y))
 

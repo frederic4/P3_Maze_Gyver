@@ -18,3 +18,7 @@ image_gardien = "Images/Gardien.png"
 image_ether = "Images/ether.png"
 image_aiguille = "Images/aiguille.png"
 image_tube = "Images/tube.png"
+
+image_win = "Images/winnergame.jpg"
+image_lost = "Images/lost.png"
+
