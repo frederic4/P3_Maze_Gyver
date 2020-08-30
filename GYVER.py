@@ -22,6 +22,8 @@ class McGyver:
 			self.y = position[1]*sprite_size # position dependent on the parameter
 			self.old_pos = (self.x, self.y)
 				
+			self.items_counter = 0
+
 		def move (self, direction):
 			""" Methode permettant de déplacer MCgyver"""
 			# créer une méthode checklist quel que soi la direction inventaire objets
@@ -68,9 +70,28 @@ class McGyver:
 			for letter in self.liste_items_full :
 				if self.labyrinthe.structure[self.case_y][self.case_x] == letter:
 					self.labyrinthe.structure[self.case_y][self.case_x] = '_'
-					self.liste_items.append(letter)					
+					self.liste_items.append(letter)	
+					
+					self.items_counter +=1
+					print(self.liste_items)
+
+					print (self.items_counter)
+
+
 
 			pygame.display.flip()	
+
+
+		def counter (self, window) :
+			if self.items_counter == 1 :
+					one = pygame.image.load(image_one).convert()
+					window.blit(one, (350,0))
+			if self.items_counter == 2 :
+					two = pygame.image.load(image_two).convert()
+					window.blit(two, (350,0))
+			if self.items_counter == 3 :
+					three = pygame.image.load(image_three).convert()
+					window.blit(three  , (350,0))	
 
 
 		def draw(self, window):  
@@ -81,10 +102,13 @@ class McGyver:
 					pygame.draw.rect(window, (0,0,0), R)
 					window.blit(self.mg_image, (self.x, self.y))
 
-					if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' : 
-						fond = pygame.image.load(image_win).convert() 
+					if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' :
+					
+				
+						fond = pygame.image.load(image_win).convert() # Affiche bien l'image.
 						window.blit(fond, (0,0))
-
+					
+					
 			
 			
 				

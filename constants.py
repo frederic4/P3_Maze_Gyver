@@ -22,3 +22,7 @@ image_tube = "Images/tube.png"
 image_win = "Images/winnergame.jpg"
 image_lost = "Images/lost.png"
 
+image_one = "Images/one.jpg"
+image_two = "Images/two.png"
+image_three = "Images/three.jpg"
+

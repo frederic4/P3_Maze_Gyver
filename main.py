@@ -4,7 +4,7 @@ import pygame
 from pygame.locals import *
 from constants import *
 from labyrinthe import *
-from items import *
+from items import * 
 from gyver import *
 
 pygame.init()
@@ -22,6 +22,12 @@ my_super_laby = Labyrinthe("listlaby.txt")
 my_super_laby.generate()
 my_super_laby.display(window)
 structure = my_super_laby
+
+
+
+items_font = pygame.font.SysFont("arial", 30)# police et taille de police
+items_text = items_font.render("Objets récupérés" , 1, (0,255,0) )# Variable, couleur
+window.blit(items_text, (100,0))
 
 pygame.display.flip()
 
@@ -60,18 +66,22 @@ while continuer:
 			if event.key == K_RIGHT: # 
 				macgyver.move ('right')
 				macgyver.draw(window)
+				macgyver.counter(window)
 
 			elif event.key == K_DOWN: # 
 				macgyver.move ('down')
 				macgyver.draw(window) 
+				macgyver.counter(window)
 
 			elif event.key == K_UP :
 				macgyver.move('up')
 				macgyver.draw(window)
+				macgyver.counter(window)
 
 			elif event.key == K_LEFT:
 				macgyver.move('left')
 				macgyver.draw(window)
+				macgyver.counter(window)
 
 
 
