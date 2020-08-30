@@ -102,12 +102,19 @@ class McGyver:
 					pygame.draw.rect(window, (0,0,0), R)
 					window.blit(self.mg_image, (self.x, self.y))
 
-					if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' :
+					if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' : 	
+						if self.items_counter == 3 :	
+				#ou fonctionne aussi if self.y == 420 and self.x == 210: # fonctionne fficher bien le message
+							fond = pygame.image.load(image_win).convert() # Affiche bien l'image.
+							window.blit(fond, (0,0))
 					
-				
-						fond = pygame.image.load(image_win).convert() # Affiche bien l'image.
-						window.blit(fond, (0,0))
-					
+						if self.items_counter != 3 :
+			#if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' and self.liste_items != []: 
+			#if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' and len(self.liste_items) != 3 :
+			#if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' and self.items_counter != 3 :# ligne a garder	
+							fond = pygame.image.load(image_lost).convert()
+							window.blit(fond, (0,0))
+
 					
 			
 			
