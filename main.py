@@ -4,6 +4,7 @@ import pygame
 from pygame.locals import *
 from constants import *
 from labyrinthe import *
+from items import *
 from gyver import *
 
 pygame.init()
@@ -26,6 +27,21 @@ pygame.display.flip()
 
 macgyver = McGyver(my_super_laby, "Images/MGyver.png", my_super_laby.mg_init_pos) # création d'une variable 
 macgyver.draw(window)
+
+
+# Création des objets placés aléaoirement
+aiguille = Items(my_super_laby, pygame.image.load("Images/aiguille.png"), 'a')
+aiguille.randomness()
+aiguille.draw(window)
+
+tube = Items(my_super_laby, pygame.image.load("Images/tube.png"), 't')
+tube.randomness()
+tube.draw(window)
+
+ether = Items(my_super_laby, pygame.image.load("Images/ether.png"), 'e')
+ether.randomness()
+ether.draw(window)
+
 
 pygame.display.flip()
 

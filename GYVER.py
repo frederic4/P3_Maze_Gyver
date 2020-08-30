@@ -8,6 +8,9 @@ class McGyver:
 		""" Classe permettant de créer McGyver"""
 		def __init__ (self, labyrinthe, url_image_gyver, position):
 
+			self.liste_items_full = ['a', 'e', 't']
+			self.liste_items = []
+
 			self.labyrinthe = labyrinthe
 
 			self.mg_image = pygame.image.load(url_image_gyver).convert_alpha()
@@ -50,7 +53,7 @@ class McGyver:
 				if self.case_y > 0 :
 					if self.labyrinthe.structure[self.case_y-1][self.case_x] != 'm':
 						self.old_pos = (self.x, self.y)
-						self.case_y -= 1
+						self.case_y -= 1 
 						self.y = self.case_y * sprite_size
 						
 						
@@ -60,7 +63,12 @@ class McGyver:
 					if self.labyrinthe.structure[self.case_y+1][self.case_x] != 'm':
 						self.old_pos = (self.x, self.y) # ancienne position
 						self.case_y += 1
-						self.y = self.case_y * sprite_size		
+						self.y = self.case_y * sprite_size	
+
+			for letter in self.liste_items_full :
+				if self.labyrinthe.structure[self.case_y][self.case_x] == letter:
+					self.labyrinthe.structure[self.case_y][self.case_x] = '_'
+					self.liste_items.append(letter)					
 
 			pygame.display.flip()	
 
@@ -72,6 +80,10 @@ class McGyver:
 					R  = pygame.Rect(self.old_pos, (30, 30)) #A chaque déplacement on blit une case noire 
 					pygame.draw.rect(window, (0,0,0), R)
 					window.blit(self.mg_image, (self.x, self.y))
+
+					if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' : 
+						fond = pygame.image.load(image_win).convert() 
+						window.blit(fond, (0,0))
 
 			
 			
