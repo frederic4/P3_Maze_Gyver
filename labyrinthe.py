@@ -9,8 +9,8 @@ pygame.init()
 class Labyrinthe:
     def __init__ (self, file):# Constructeur pour initialiser la classe labyrinthe
         self.file = "listlaby.txt"
-        
-        self.structure = []
+        self.structure = 0
+        self.mg_init_pos = []
 
     def generate (self):# générer le labyrinthe
 
@@ -56,9 +56,7 @@ class Labyrinthe:
                 x = num_case * sprite_size
                 y = num_line * sprite_size
                 if sprite == 'm' :
-                    window.blit(mur, (x,y))
-                elif sprite == 'h' :
-                    window.blit(gyver, (x,y))    
+                    window.blit(mur, (x,y))    
                 elif sprite == 'g':
                     window.blit(gardien, (x,y))
                 elif sprite == 'e':
@@ -67,7 +65,10 @@ class Labyrinthe:
                     window.blit(aiguille, (x,y))
                 elif sprite == 't':
                     window.blit(tube, (x,y))
-
+                elif sprite == 'h' :
+                    self.mg_init_pos = [num_case, num_line]
 
                 num_case += 1
             num_line += 1    
+
+# Class OK 

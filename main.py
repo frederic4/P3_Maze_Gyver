@@ -4,6 +4,7 @@ import pygame
 from pygame.locals import *
 from constants import *
 from labyrinthe import *
+from gyver import *
 
 pygame.init()
 
@@ -14,9 +15,17 @@ window = pygame.display.set_mode((cote_window, cote_window))
 fond = pygame.image.load("images/background.jpg").convert()
 
 
+
+
 my_super_laby = Labyrinthe("listlaby.txt")
 my_super_laby.generate()
 my_super_laby.display(window)
+structure = my_super_laby
+
+pygame.display.flip()
+
+macgyver = McGyver(my_super_laby, "Images/MGyver.png", my_super_laby.mg_init_pos) # création d'une variable 
+macgyver.draw(window)
 
 pygame.display.flip()
 
@@ -32,7 +41,22 @@ while continuer:
 		
 		if event.type == KEYDOWN : 
 
-			if event.key == K_DOWN: # 
+			if event.key == K_RIGHT: # 
+				macgyver.move ('right')
+				macgyver.draw(window)
+
+			elif event.key == K_DOWN: # 
 				macgyver.move ('down')
+				macgyver.draw(window) 
+
+			elif event.key == K_UP :
+				macgyver.move('up')
+				macgyver.draw(window)
+
+			elif event.key == K_LEFT:
+				macgyver.move('left')
+				macgyver.draw(window)
+
+
 
 pygame.display.flip()          
