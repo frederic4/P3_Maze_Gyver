@@ -23,7 +23,7 @@ structure = my_super_laby
 
 
 items_font = pygame.font.SysFont("arial", 30)  # police et taille de police
-items_text = items_font.render("Objets récupérés", 1, (0, 255, 0))  # Variable, couleur
+items_text = items_font.render("Objets récupérés", 1, (0, 255, 0))  # color 
 window.blit(items_text, (100, 0))
 
 pygame.display.flip()
