@@ -1,17 +1,23 @@
 import pygame
-from pygame.locals import *
-from constants import *
+
+from constants import sprite_size
+from constants import nombre_sprite_cote
+from constants import image_one
+from constants import image_two
+from constants import image_three
+from constants import image_win
+from constants import image_lost
 
 
 class McGyver:
     """ Classe permettant de créer McGyver"""
 
-    def __init__(self, labyrinthe, url_image_gyver, position):
+    def __init__(self, laby, url_image_gyver, position):
 
         self.liste_items_full = ["a", "e", "t"]
         self.liste_items = []
 
-        self.labyrinthe = labyrinthe
+        self.laby = laby
 
         self.mg_image = pygame.image.load(url_image_gyver).convert_alpha()
 
@@ -19,21 +25,21 @@ class McGyver:
         self.case_y = position[1]
 
         self.x = position[0] * sprite_size
-        self.y = position[1] * sprite_size  # position dependent on the parameter
+        self.y = position[1] * sprite_size  # position dependent the parameter
         self.old_pos = (self.x, self.y)
 
         self.items_counter = 0
 
     def move(self, direction):
-        """ Methode permettant de déplacer MCgyver"""
-        # créer une méthode checklist quel que soi la direction inventaire objets
+        """ Method used to move MCgyver"""
+        # create a method object inventory direction
 
         # Move to the right
         if direction == "right":
             # Not to exceed the screen
             if self.case_x < (nombre_sprite_cote - 1):
                 # Check the box is not a wall
-                if self.labyrinthe.structure[self.case_y][self.case_x + 1] != "m":
+                if self.laby.structure[self.case_y][self.case_x + 1] != "m":
                     self.old_pos = (self.x, self.y)  # Old position
                     # Moving one box
                     self.case_x += 1
@@ -43,7 +49,7 @@ class McGyver:
         # Move to the left
         if direction == "left":
             if self.case_x > 0:
-                if self.labyrinthe.structure[self.case_y][self.case_x - 1] != "m":
+                if self.laby.structure[self.case_y][self.case_x - 1] != "m":
                     self.old_pos = (self.x, self.y)
                     self.case_x -= 1
                     self.x = self.case_x * sprite_size
@@ -51,7 +57,7 @@ class McGyver:
         # Moving up
         if direction == "up":
             if self.case_y > 0:
-                if self.labyrinthe.structure[self.case_y - 1][self.case_x] != "m":
+                if self.laby.structure[self.case_y - 1][self.case_x] != "m":
                     self.old_pos = (self.x, self.y)
                     self.case_y -= 1
                     self.y = self.case_y * sprite_size
@@ -59,14 +65,14 @@ class McGyver:
         # Moving down
         if direction == "down":
             if self.case_y < (nombre_sprite_cote - 1):
-                if self.labyrinthe.structure[self.case_y + 1][self.case_x] != "m":
+                if self.laby.structure[self.case_y + 1][self.case_x] != "m":
                     self.old_pos = (self.x, self.y)  # ancienne position
                     self.case_y += 1
                     self.y = self.case_y * sprite_size
 
         for letter in self.liste_items_full:
-            if self.labyrinthe.structure[self.case_y][self.case_x] == letter:
-                self.labyrinthe.structure[self.case_y][self.case_x] = "_"
+            if self.laby.structure[self.case_y][self.case_x] == letter:
+                self.laby.structure[self.case_y][self.case_x] = "_"
                 self.liste_items.append(letter)
 
                 self.items_counter += 1
@@ -92,21 +98,16 @@ class McGyver:
         # print (self.y, self.x)
         print(self.case_y, self.case_x)
 
-        R = pygame.Rect(
-            self.old_pos, (30, 30)
-        )  # A chaque déplacement on blit une case noire
+        R = pygame.Rect(self.old_pos, (30, 30))
+        # Each move blit a black square
         pygame.draw.rect(window, (0, 0, 0), R)
         window.blit(self.mg_image, (self.x, self.y))
 
-        if self.labyrinthe.structure[self.case_y][self.case_x] == "g":
+        if self.laby.structure[self.case_y][self.case_x] == "g":
             if self.items_counter == 3:
-                # ou fonctionne aussi if self.y == 420 and self.x == 210: # fonctionne fficher bien le message
-                fond = pygame.image.load(image_win).convert()  # Affiche bien l'image.
+                fond = pygame.image.load(image_win).convert()
                 window.blit(fond, (0, 0))
 
             if self.items_counter != 3:
-                # if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' and self.liste_items != []:
-                # if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' and len(self.liste_items) != 3 :
-                # if self.labyrinthe.structure[self.case_y][self.case_x] == 'g' and self.items_counter != 3 :# ligne a garder
                 fond = pygame.image.load(image_lost).convert()
                 window.blit(fond, (0, 0))

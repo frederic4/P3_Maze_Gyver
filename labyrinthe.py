@@ -1,14 +1,19 @@
 """ classe labyrinthe"""
 
 import pygame
-from pygame.locals import *
-from constants import *
+
+from constants import sprite_size
+from constants import image_wall
+from constants import image_gardien
+from constants import image_ether
+from constants import image_tube
+from constants import image_aiguille
 
 pygame.init()
 
 
 class Labyrinthe:
-    def __init__(self, file):  # Constructeur pour initialiser la classe labyrinthe
+    def __init__(self, file):  # initialize the labyrinth class
         self.file = "listlaby.txt"
         self.structure = 0
         self.mg_init_pos = []
@@ -36,9 +41,8 @@ class Labyrinthe:
             self.structure = laby
 
     def display(self, window):
-        """ méthode qui afiche le labyrinthe"""
-        # chargement des images
-        gyver = pygame.image.load(image_gyver).convert_alpha()
+        """ méthod displays maze """
+        # loading images
         mur = pygame.image.load(image_wall).convert()
         gardien = pygame.image.load(image_gardien).convert_alpha()
         ether = pygame.image.load(image_ether).convert_alpha()
@@ -47,10 +51,10 @@ class Labyrinthe:
 
         num_line = 0
         for line in self.structure:
-            # parcourt des listes de lignes
+            # browse lists of lines
             num_case = 0
             for sprite in line:
-                # calcul de la position en pixel
+                # calculate position in pixels
                 x = num_case * sprite_size
                 y = num_line * sprite_size
                 if sprite == "m":
@@ -68,6 +72,3 @@ class Labyrinthe:
 
                 num_case += 1
             num_line += 1
-
-
-# Class OK

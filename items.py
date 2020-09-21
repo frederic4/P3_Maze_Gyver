@@ -1,10 +1,6 @@
 # Classe objets :
 
-import pygame
-from pygame.locals import *
-from constants import *
-from labyrinthe import *
-from gyver import *
+from constants import sprite_size
 import random
 
 
