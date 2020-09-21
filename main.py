@@ -1,4 +1,5 @@
 # MacGyver scripts game
+# PEP8
 
 import pygame
 
