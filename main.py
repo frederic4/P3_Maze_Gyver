@@ -70,23 +70,23 @@ def main():
 
                 if event.key == K_RIGHT:
                     macgyver.move("right")
-                    macgyver.draw(window)
                     macgyver.counter(window)
+                    macgyver.draw(window)
 
                 elif event.key == K_DOWN:
                     macgyver.move("down")
-                    macgyver.draw(window)
                     macgyver.counter(window)
+                    macgyver.draw(window)
 
                 elif event.key == K_UP:
                     macgyver.move("up")
-                    macgyver.draw(window)
                     macgyver.counter(window)
+                    macgyver.draw(window)
 
                 elif event.key == K_LEFT:
                     macgyver.move("left")
-                    macgyver.draw(window)
                     macgyver.counter(window)
+                    macgyver.draw(window)
 
     pygame.display.flip()
 
