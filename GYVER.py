@@ -10,7 +10,7 @@ from constants import image_lost
 
 
 class McGyver:
-    """ Classe permettant de créer McGyver"""
+    """ Class for creating McGyver"""
 
     def __init__(self, laby, url_image_gyver, position):
 
@@ -66,7 +66,7 @@ class McGyver:
         if direction == "down":
             if self.case_y < (nombre_sprite_cote - 1):
                 if self.laby.structure[self.case_y + 1][self.case_x] != "m":
-                    self.old_pos = (self.x, self.y)  # ancienne position
+                    self.old_pos = (self.x, self.y)  # old position
                     self.case_y += 1
                     self.y = self.case_y * sprite_size
 

@@ -18,14 +18,14 @@ class Labyrinthe:
         self.structure = 0
         self.mg_init_pos = []
 
-    def generate(self):  # générer le labyrinthe
+    def generate(self):  # generate the labyrinthe
 
         with open(self.file, "r", encoding="utf-8") as f:
             lines = f.readlines()
             laby = []
             num_line = 0
             for line in lines:
-                # on parcourt les lignes de la liste
+                # cycle through the lines of the list
 
                 line.replace("\n", "")
                 line_laby = []
@@ -51,7 +51,7 @@ class Labyrinthe:
 
         num_line = 0
         for line in self.structure:
-            # browse lists of lines
+            # browse list lines
             num_case = 0
             for sprite in line:
                 # calculate position in pixels

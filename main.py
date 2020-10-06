@@ -22,26 +22,22 @@ def main():
     # Open Pygame window
     window = pygame.display.set_mode((cote_window, cote_window))
 
-    # Loading and pasting of the background
-    # fond = pygame.image.load("images/background.jpg").convert()
-
     my_laby = Labyrinthe("listlaby.txt")
     my_laby.generate()
     my_laby.display(window)
-    # structure = my_laby
 
-    items_font = pygame.font.SysFont("arial", 30)  # police et taille de police
+    items_font = pygame.font.SysFont("arial", 30)  # font end character font
     items_text = items_font.render("Objets récupérés", 1, (0, 255, 0))  # color
 
     window.blit(items_text, (100, 0))
 
     pygame.display.flip()
 
-    # création d'une variable
+    # create variable
     macgyver = McGyver(my_laby, "Images/MGyver.png", my_laby.mg_init_pos)
     macgyver.draw(window)
 
-    # Création des objets placés aléaoirement
+    # create randomly placed items
     aiguille = Items(my_laby, pygame.image.load("Images/aiguille.png"), "a")
     aiguille.randomness()
     aiguille.draw(window)
